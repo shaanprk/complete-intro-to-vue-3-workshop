@@ -7,8 +7,67 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>
-      Test
-    </h1>
+    <h1>One Piece</h1>
+
+    <div id ="app">
+      {{ message }}
+      <ol>
+        <li v-for="character in strawhats">{{ character.name }} - {{ character.bounty }}</li>
+      </ol>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue
+
+      Vue.createApp({
+        data: () => ({
+          message: 'The order of Straw Hat Pirates',
+          strawhats: [
+            {
+              name: "Luffy",
+              bounty: 3000000000
+            },
+            {
+              name: "Zoro",
+              bounty: 1111000000
+            },
+            {
+              name: "Nami",
+              bounty: 366000000
+            },
+            {
+              name: "Usopp",
+              bounty: 500000000
+            },
+            {
+              name: "Sanji",
+              bounty: 1032000000
+            },
+            {
+              name: "Chopper",
+              bounty: 1000
+            },
+            {
+              name: "Robin",
+              bounty: 930000000
+            },
+            {
+              name: "Franky",
+              bounty: 394000000
+            },
+            {
+              name: "Brook",
+              bounty: 383000000
+            },
+            {
+              name: "Jinbe",
+              bounty: 1100000000
+            }
+          ]
+        })
+      }).mount('#app')
+
+    </script>
   </body>
 </html>
