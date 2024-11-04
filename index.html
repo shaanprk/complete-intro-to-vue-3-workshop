@@ -10,10 +10,22 @@
     <h1>One Piece</h1>
 
     <div id ="app">
-      {{ message }}
+      <h2>Straw Hat Pirates</h2>
       <ol>
-        <li v-for="character in strawhats">{{ character.name }} - {{ character.bounty }}</li>
+        <li v-for="character in strawhats">
+          {{ character.name }} - {{ character.bounty }}
+          <button @click="addToFavorites(character.name)">
+            Favorite
+          </button>
+        </li>
       </ol>
+
+      <h2>Favorite Straw Hat Pirates</h2>
+      <ol>
+        <li v-for="favchar in favoriteList">{{ favchar }}</li>
+      </ol>
+      
+      <h2></h2>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -64,8 +76,17 @@
               name: "Jinbe",
               bounty: 1100000000
             }
-          ]
-        })
+          ],
+          favoriteList: []
+        }),
+        methods: {
+          addToFavorites(character) {
+            this.favoriteList.push(character)
+          },
+          incrementCount() {
+            this.count++
+          }
+        }
       }).mount('#app')
 
     </script>
